@@ -24,9 +24,8 @@ Options:
       --version  Show version number                                   [boolean]
   -r, --root     Root directory                          [string] [default: "."]
   -d, --dirs     Directories to check for package-lock.json from root directory
-                                                        [string] [default: null]
+                 separated by comma                     [string] [default: null]
   -f, --filter   Filter dependencies for display. Should be a JS regex
-                                                        [string] [default: null]
                                                         [string] [default: null]
 ```
 

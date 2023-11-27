@@ -98,7 +98,7 @@ yargs(hideBin(process.argv))
       default: '.',
     }).option('dirs', {
         alias: 'd',
-        describe: 'Directories to check for package-lock.json from root directory',
+        describe: 'Directories to check for package-lock.json from root directory separated by comma',
         type: 'string',
         default: null,
     }).option('filter', {

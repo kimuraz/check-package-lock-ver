@@ -21,6 +21,9 @@ Options:
   -r, --root     Root directory                          [string] [default: "."]
   -d, --dirs     Directories to check for package-lock.json from root directory
                                                         [string] [default: null]
+  -f, --filter   Filter dependencies for display. Should be a JS regex
+                                                        [string] [default: null]
+                                                        [string] [default: null]
 ```
 
 > The root directory should be the parent directory that contains the projects' folders 

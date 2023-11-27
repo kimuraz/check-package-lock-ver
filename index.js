@@ -21,7 +21,7 @@ function parsePackageLock(dir) {
         const packageLock = JSON.parse(data);
         const projectName = packageLock.name;
         const { packages } = packageLock;
-        const depsWithVersions = Object.keys(packages).filter(k => !!k).reduce((acc, key) => {
+        const depsWithVersions = Object.keys(packages || {}).filter(k => !!k).reduce((acc, key) => {
           const { version } = packages[key];
           const packageName = key.split('/').pop();
           if (!acc[packageName]) {
@@ -76,7 +76,13 @@ function main(args) {
       process.exit(0);
     }
     const commonDeps = findCommonDepsOnAllProjects(filteredResults);
-    console.table(commonDeps);
+    Object.keys(commonDeps).forEach((dep) => {
+      if (args.filter && !new RegExp(args.filter).test(dep)) {
+        return;
+      }
+      console.log(`== ${dep} ==`);
+      console.table(commonDeps[dep]);
+    });
   }).catch((e) => {
       console.error(e.message);
       process.exit(1);
@@ -95,5 +101,10 @@ yargs(hideBin(process.argv))
         describe: 'Directories to check for package-lock.json from root directory',
         type: 'string',
         default: null,
-      });
+    }).option('filter', {
+        alias: 'f',
+        describe: 'Filter dependencies for display. Should be a JS regex',
+        type: 'string',
+        default: null,
+    });
   }, main).parse(); 

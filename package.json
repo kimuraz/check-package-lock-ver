@@ -1,0 +1,24 @@
+{
+  "name": "check-package-lock-ver",
+  "version": "0.1.0",
+  "description": "Check different package-lock files to find mismatching dependencies versions on different projects",
+  "main": "index.js",
+  "bin": {
+    "check-package-lock-ver": "./index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "package-lock",
+    "node",
+    "dependency",
+    "management"
+  ],
+  "author": "Kimuraz <j.eduardokimura@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}

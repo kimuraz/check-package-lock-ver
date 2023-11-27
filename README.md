@@ -8,6 +8,10 @@ The project is written in javascript and can be install as binary on the system 
 
 ```sh
 $ npm i && npm i -g .
+
+# or without binary
+
+$ npm i && node index.js
 ```
 
 ## How to use it 
